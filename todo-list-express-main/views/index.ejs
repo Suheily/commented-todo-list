@@ -1,0 +1,46 @@
+<!DOCTYPE html><!-- tells browser the code type -->
+<html lang="en"> <!--tells browser default language is English-->
+<head><!-- starts head block in order to add meta data -->
+    <meta charset="UTF-8"><!-- tells browser which character set to use for page-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- tells browser to use Microsoft Edge instead of Internet Explorer-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- tells browser to scale the width of the page depending on the width of the device screen -->
+    <title>Document</title> <!-- sets document title-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"><!-- links to a global stylesheet's library needed in order to render the trash can icons-->
+    <link rel="stylesheet" href="css/style.css"> <!--links to cascading style sheet-->
+</head> <!--closes head block-->
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<body><!--starts the body block of the page which is all content that is to be displayed -->
+    <h1>Todo List: </h1> <!--renders header 1-->
+    <ul class="todoItems"><!-- creates an unordered list with a class of todoItems-->
+    <% for(let i=0; i < items.length; i++) {%><!-- EJS specific syntax that allows us to embed a for-loop in javascript-->
+        <li class="item"> <!--renders a list with item class for each element in array-->
+            <% if(items[i].completed === true) {%><!--conditional of for-loop that says if an item is completed then execute the next part of code -->
+                <span class='completed'><%= items[i].thing %></span><!-- prints array element name inside of an inline span with the class of completed -->
+            <% }else{ %><!-- else statement -->
+                <span><%= items[i].thing %></span><!-- prints array element name inside inline span without the class of completed-->
+            <% } %>    <!-- ends the loop -->
+            <span class='fa fa-trash'></span><!-- renders the trash can icon as an inline span-->
+        </li> <!--closes list block-->
+    <% } %> <!--closes the loop-->
+    </ul><!--ends unordered list-->
+
+    <h2>Left to do: <%= left %></h2><!-- creates a level 2 header that prints the number saved in the variable of left-->
+
+    <h2>Add A Todo:</h2> <!--renders header 2-->
+
+    <form action="/addTodo" method="POST"><!-- creates a form that POSTS the inputed text to the route of /addTodo-->
+        <input type="text" placeholder="Thing To Do" name="todoItem"> <!--renders a text input field that has a placeholder of "Things To Do"-->
+        <input type="submit"> <!--renders a submit button-->
+    </form> <!--closes form block-->
+    
+
+    <script src='js/main.js'></script> <!--links to javascript file-->
+</body> <!--closes the body block-->
+</html> <!--closes html block-->

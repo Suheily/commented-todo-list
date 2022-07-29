@@ -1,0 +1,7 @@
+h1{ /*selects header*/
+    color: red; /*makes the header red*/
+}/*closes the styles for level 1 header*/
+.completed{ /*selects elements with the class of completed */
+    color: gray; /*changes font color to gray*/
+    text-decoration: line-through; /* strikes through text*/
+} /*closes styles for completed class*/
